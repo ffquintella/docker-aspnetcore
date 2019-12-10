@@ -13,5 +13,5 @@ package{'libicu':}
 
 package{'libunwind':}
 
-package{'aspnetcore-runtime-2.2':}
+package{'aspnetcore-runtime-3.1':}
 
