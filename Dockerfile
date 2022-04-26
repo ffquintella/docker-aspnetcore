@@ -2,7 +2,7 @@ FROM ffquintella/docker-puppet:8.7.16
 
 MAINTAINER Felipe Quintella <docker-jira@felipe.quintella.email>
 
-LABEL version="2.2.1"
+LABEL version="sdk-6.1"
 LABEL description="This is a base image to be used as source for other images"
 
 ENV LANG=en_US.UTF-8

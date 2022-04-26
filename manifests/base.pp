@@ -13,5 +13,5 @@ package{'libicu':}
 
 package{'libunwind':}
 
-package{'dotnet-sdk-2.2':}
+package{'dotnet-sdk-6':}
 
