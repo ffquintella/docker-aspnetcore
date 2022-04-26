@@ -1,4 +1,4 @@
-FROM ffquintella/docker-puppet:1.5.1
+FROM ffquintella/docker-puppet:8.7.16
 
 MAINTAINER Felipe Quintella <docker-jira@felipe.quintella.email>
 
@@ -10,7 +10,7 @@ ENV LANGUAGE=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 
 #Microsoft repository
-RUN rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm
+RUN rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
 
 # Puppet stuff all the instalation is donne by puppet
 # Just after it we clean up everthing so the end image isn't too big
@@ -20,20 +20,4 @@ COPY modules /etc/puppet/modules/
 RUN /opt/puppetlabs/puppet/bin/puppet apply --modulepath=/etc/puppet/modules /etc/puppet/manifests/base.pp  ;\
  yum clean all ; rm -rf /tmp/* ; rm -rf /var/cache/* ; rm -rf /var/tmp/* ; rm -rf /var/opt/staging
 
-#COPY start-service.sh /opt/scripts/start-service.sh
-#RUN chmod +x /opt/scripts/start-service.sh ;
 
-
-#COPY setenv.sh ${JIRA_INSTALLDIR}/atlassian-jira-software-${JIRA_VERSION}-standalone/bin
-#RUN chmod +x ${JIRA_INSTALLDIR}/atlassian-jira-software-${JIRA_VERSION}-standalone/bin/setenv.sh
-
-# Ports Jira web interface
-#EXPOSE 8080/tcp
-
-#WORKDIR $FACTER_JIRA_INSTALLDIR
-
-# Configurations folder, install dir
-#VOLUME  $JIRA_HOME
-
-#CMD /opt/puppetlabs/puppet/bin/puppet apply -l /tmp/puppet.log  --modulepath=/etc/puppet/modules /etc/puppet/manifests/start.pp
-#CMD ["start-service"]
