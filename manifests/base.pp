@@ -8,5 +8,5 @@ Exec {
 
 package{'curl':}
 
-package{'dotnet-sdk-6.0':}
+package{'aspnetcore-runtime-6.0':}
 
